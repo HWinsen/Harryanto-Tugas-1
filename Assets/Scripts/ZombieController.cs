@@ -26,4 +26,9 @@ public class ZombieController : MonoBehaviour
     {
         Kill();
     }
+
+    public void setController(ScoreController sc)
+    {
+        _scoreController = sc;
+    }
 }

@@ -953,7 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 2
-  _scoreController: {fileID: 2095768149369007364, guid: f3e57a52071baa24ca9b05ddf5dc881a, type: 3}
+  _scoreController: {fileID: 1608010942}
 --- !u!70 &993493894
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2371,7 +2371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 2
-  _scoreController: {fileID: 2095768149369007364, guid: f3e57a52071baa24ca9b05ddf5dc881a, type: 3}
+  _scoreController: {fileID: 1608010942}
 --- !u!70 &1916527218
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

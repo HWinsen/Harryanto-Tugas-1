@@ -9,6 +9,7 @@ public class SpawnController : MonoBehaviour
     private Vector2 _randomSpawnPosition;
     private float _spawnTimer;
     private int _randomSpawnObject;
+    private ScoreController sc;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,8 @@ public class SpawnController : MonoBehaviour
             //    spawnObject.SetActive(true);
 
             //}
-            Instantiate(_spawnObject[_randomSpawnObject], _randomSpawnPosition, Quaternion.identity);
+            var GO =  Instantiate(_spawnObject[_randomSpawnObject], _randomSpawnPosition, Quaternion.identity);
+            GO.GetComponent<ZombieController>().setController(sc);
             _spawnTimer = 0f;
         }
     }
