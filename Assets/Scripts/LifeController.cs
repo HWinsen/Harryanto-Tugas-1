@@ -12,13 +12,19 @@ public class LifeController : MonoBehaviour
         life = 3;
     }
 
+    private void Update()
+    {
+        _uIController.lifeTMP.SetText("Life: " + life);
+    }
+
     public void RemoveLife()
     {
         Debug.Log("trigger");
 
-        //_uIController.lifeIcon[life].SetActive(false);
+        
         life--;
         Debug.Log(life);
+        _uIController.lifeIcon.RemoveAt(life);
         //_uIController.lifeIcon[2].SetActive(false);
     }
 }

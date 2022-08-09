@@ -5,6 +5,7 @@ using UnityEngine;
 public class SafeZoneController : MonoBehaviour
 {
     [SerializeField] private LifeController _lifeController;
+    [SerializeField] private ScoreController _scoreController;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +13,10 @@ public class SafeZoneController : MonoBehaviour
         {
             // Kurangin darah
             _lifeController.RemoveLife();
+        }
+        else if (collision.CompareTag("Human"))
+        {
+            _scoreController.BonusScore();
         }
     }
 

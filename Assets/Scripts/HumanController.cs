@@ -21,4 +21,12 @@ public class HumanController : MonoBehaviour
     {
         Kill();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Zombie"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

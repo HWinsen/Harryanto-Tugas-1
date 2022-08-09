@@ -5,14 +5,18 @@ using TMPro;
 
 public class WaveController : MonoBehaviour
 {
+    private float _waveDuration;
     private float _waveCountdown;
     private int _waveCount;
     [SerializeField] private TMP_Text _waveTMP;
+    public bool isActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        _waveCountdown = 10f;
+        isActive = true;
+        _waveDuration = 10f;
+        _waveCountdown = 5f;
         _waveCount = 1;
         _waveTMP.SetText("Wave: " + _waveCount.ToString());
     }
@@ -20,13 +24,28 @@ public class WaveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _waveCountdown -= Time.deltaTime;
-        if (_waveCountdown <= 0)
+        if (isActive)
         {
-            Debug.Log(_waveCountdown);
-            _waveCount++;
             _waveTMP.SetText("Wave: " + _waveCount.ToString());
-            _waveCountdown = 10f;
+            _waveDuration -= Time.deltaTime;
+            Debug.Log(_waveDuration);
+            if (_waveDuration <= 0f)
+            {
+                isActive = false;
+            }
+        }
+        else
+        {
+            _waveTMP.SetText("Next wave in: " + _waveCountdown.ToString("00"));
+            _waveCountdown -= Time.deltaTime;
+            Debug.Log(_waveCountdown);
+            if (_waveCountdown <= 0f)
+            {
+                _waveCount++;
+                isActive = true;
+                _waveDuration = 10f;
+                _waveCountdown = 5f;
+            }
         }
     }
 

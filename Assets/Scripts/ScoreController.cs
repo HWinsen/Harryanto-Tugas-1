@@ -19,4 +19,9 @@ public class ScoreController : MonoBehaviour
     {
         score += 100;
     }
+
+    public void BonusScore()
+    {
+        score += 500;
+    }
 }
