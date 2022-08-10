@@ -6,6 +6,7 @@ using TMPro;
 public class UIController : MonoBehaviour
 {
     public GameObject losePanel;
-    public List<GameObject> lifeIcon;
-    public TMP_Text lifeTMP;
+    public GameObject life1;
+    public GameObject life2;
+    public GameObject life3;
 }
