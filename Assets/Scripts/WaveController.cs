@@ -28,7 +28,6 @@ public class WaveController : MonoBehaviour
         {
             _waveTMP.SetText("Wave: " + _waveCount.ToString());
             _waveDuration -= Time.deltaTime;
-            Debug.Log(_waveDuration);
             if (_waveDuration <= 0f)
             {
                 isActive = false;
@@ -38,7 +37,6 @@ public class WaveController : MonoBehaviour
         {
             _waveTMP.SetText("Next wave in: " + _waveCountdown.ToString("00"));
             _waveCountdown -= Time.deltaTime;
-            Debug.Log(_waveCountdown);
             if (_waveCountdown <= 0f)
             {
                 _waveCount++;
