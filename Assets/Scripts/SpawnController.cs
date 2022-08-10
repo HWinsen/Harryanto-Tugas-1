@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _spawnObject;
+    // Instantiate
+    //[SerializeField] private GameObject[] _spawnObject;
+
+    // Object Pool
+    [SerializeField] private ObjectPooler _objectPooler;
+    [SerializeField] private GameObject _spawnObject;
+
     [SerializeField] private float _spawnInterval;
     private Vector2 _randomSpawnPosition;
     private float _spawnTimer;
@@ -18,30 +24,40 @@ public class SpawnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _objectPooler = ObjectPooler.Instance;
         _spawnTimer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Instantiate
+        //if (_waveController.isActive)
+        //{
+        //    _randomSpawnObject = Random.Range(0, _spawnObject.Length);
+        //    _randomSpawnPosition = new Vector2(Random.Range(-5, 5), transform.position.y);
+        //    _spawnTimer += Time.deltaTime;
+        //    if (_spawnTimer >= _spawnInterval)
+        //    {
+        //        GameObject spawn = Instantiate(_spawnObject[_randomSpawnObject], _randomSpawnPosition, Quaternion.identity);
+        //        spawn.SetActive(true);
+        //        _spawnTimer = 0f;
+        //    }
+        //}
+
+        // Object Pooling
         if (_waveController.isActive)
         {
-            _randomSpawnObject = Random.Range(0, _spawnObject.Length);
             _randomSpawnPosition = new Vector2(Random.Range(-5, 5), transform.position.y);
             _spawnTimer += Time.deltaTime;
             if (_spawnTimer >= _spawnInterval)
             {
-                //Debug.Log(_spawnTimer >= _spawnInterval);
-                //spawnObject = ObjectPooler.Instance.GetPooledObject();
-                //if (spawnObject != null)
-                //{
-                //    spawnObject.transform.SetPositionAndRotation(spawnerPositionList[randomSpawnPosition], Quaternion.identity);
-                //    spawnObject.SetActive(true);
-
-                //}
-
-                GameObject spawn = Instantiate(_spawnObject[_randomSpawnObject], _randomSpawnPosition, Quaternion.identity);
-                spawn.SetActive(true);
+                _spawnObject = ObjectPooler.Instance.GetPooledObject();
+                if (_spawnObject != null)
+                {
+                    _spawnObject.transform.SetPositionAndRotation(_randomSpawnPosition, Quaternion.identity);
+                    _spawnObject.SetActive(true);
+                }
 
                 //var GO = Instantiate(_spawnObject[_randomSpawnObject], _randomSpawnPosition, Quaternion.identity);
                 //GO.GetComponent<ZombieController>().setController(sc);

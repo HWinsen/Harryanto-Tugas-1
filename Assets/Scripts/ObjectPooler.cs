@@ -16,6 +16,8 @@ public class ObjectPooler : MonoBehaviour
     #endregion
 
     public List<GameObject> pooledObjects;
+    [SerializeField] private GameObject[] _spawnObject;
+    private int _randomSpawnObject;
     //public AssetReference ball;
     
     public int amountToPool;
@@ -29,12 +31,19 @@ public class ObjectPooler : MonoBehaviour
 
         for (int i = 0; i < amountToPool; i++)
         {
+            _randomSpawnObject = Random.Range(0, _spawnObject.Length);
+
             //ball.InstantiateAsync().Completed += (newBall) =>
             //{
             //    GameObject obj = newBall.Result;
             //    obj.SetActive(false);
             //    pooledObjects.Add(obj);
             //};
+
+            GameObject obj = Instantiate(_spawnObject[_randomSpawnObject], transform.position, Quaternion.identity);
+            obj.SetActive(false);
+            pooledObjects.Add(obj);
+            obj.transform.parent = gameObject.transform;
         }
 
     }
