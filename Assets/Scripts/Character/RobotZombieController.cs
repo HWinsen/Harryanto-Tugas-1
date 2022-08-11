@@ -11,11 +11,16 @@ namespace Agate.TapZombie.Character
         private float zigZagDuration;
         private float zigZagInterval = 2f;
         [SerializeField] private float newX = 5f;
-        
+
+        private void Awake()
+        {
+            StartCoroutine(ZigZag(zigZagInterval));
+        }
+
         private void Start()
         {
             moveSpeed = 2f;
-            StartCoroutine(ZigZag(zigZagInterval));
+            //StartCoroutine(ZigZag(zigZagInterval));
         }
 
         private void OnEnable()
@@ -64,13 +69,14 @@ namespace Agate.TapZombie.Character
             while (true)
             {
                 float zigZagDuration = 0;
-                if (newX == 5)
+
+                if (transform.position.x == 0)
                 {
-                    newX = -5;
+                    newX = 1;
                 }
-                else if (newX == -5)
+                else
                 {
-                    newX = 5;
+                    newX = transform.position.x * -1;
                 }
 
                 while (zigZagDuration < zigZagInterval)
