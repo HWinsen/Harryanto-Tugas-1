@@ -32,7 +32,7 @@ namespace Agate.TapZombie.Character
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Zombie"))
+            if (collision.CompareTag("Zombie") || collision.CompareTag("Zombie2"))
             {
                 gameObject.SetActive(false);
             }

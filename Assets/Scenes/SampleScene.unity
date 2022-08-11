@@ -158,7 +158,7 @@ MonoBehaviour:
   - {fileID: 1916527215}
   - {fileID: 993493891}
   - {fileID: 930179331}
-  _amountToPool: 4
+  _amountToPool: 7
 --- !u!4 &79231523
 Transform:
   m_ObjectHideFlags: 0
@@ -1000,10 +1000,10 @@ GameObject:
   - component: {fileID: 993493895}
   - component: {fileID: 993493894}
   - component: {fileID: 993493892}
-  - component: {fileID: 993493893}
+  - component: {fileID: 993493897}
   m_Layer: 0
   m_Name: Zombie2
-  m_TagString: Zombie
+  m_TagString: Zombie2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1029,20 +1029,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!114 &993493893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993493891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1163926720832f746a95944a86313f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0
-  _scoreController: {fileID: 1608010942}
 --- !u!70 &993493894
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1126,6 +1112,20 @@ Transform:
   m_Father: {fileID: 1261015505}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &993493897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993493891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578df99eea333824b85c1ff71a56ac84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  _scoreController: {fileID: 1608010942}
 --- !u!1 &1232346425
 GameObject:
   m_ObjectHideFlags: 0

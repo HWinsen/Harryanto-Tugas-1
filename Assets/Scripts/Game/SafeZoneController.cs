@@ -11,7 +11,7 @@ namespace Agate.TapZombie.Game
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Zombie"))
+            if (collision.CompareTag("Zombie") || collision.CompareTag("Zombie2"))
             {
                 // Kurangin darah
                 _lifeController.RemoveLife();
