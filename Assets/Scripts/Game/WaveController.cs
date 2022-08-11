@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace Agate.TapZombie.Character
+namespace Agate.TapZombie.Game
 {
     public class WaveController : MonoBehaviour
     {
         private float _waveDuration;
         private float _waveCountdown;
         private int _waveCount;
+
         [SerializeField] private TMP_Text _waveTMP;
         public bool isActive;
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Agate.TapZombie.Character
+namespace Agate.TapZombie.Game
 {
     public class SafeZoneController : MonoBehaviour
     {

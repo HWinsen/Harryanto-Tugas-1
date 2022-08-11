@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Agate.TapZombie.Character
+namespace Agate.TapZombie.Game
 {
     public class SpawnController : MonoBehaviour
     {
-        // Instantiate
-        //[SerializeField] private GameObject[] _spawnObject;
-
         // Object Pool
         [SerializeField] private ObjectPooler _objectPooler;
         [SerializeField] private GameObject _spawnObject;
@@ -16,12 +13,12 @@ namespace Agate.TapZombie.Character
         [SerializeField] private float _spawnInterval;
         private Vector2 _randomSpawnPosition;
         private float _spawnTimer;
-        private int _randomSpawnObject;
+        //private int _randomSpawnObject;
 
         [SerializeField] private WaveController _waveController;
 
         // pasang kembali scorecontroller
-        private ScoreController sc;
+        //private ScoreController sc;
 
         // Start is called before the first frame update
         void Start()
@@ -33,20 +30,6 @@ namespace Agate.TapZombie.Character
         // Update is called once per frame
         void Update()
         {
-            // Instantiate
-            //if (_waveController.isActive)
-            //{
-            //    _randomSpawnObject = Random.Range(0, _spawnObject.Length);
-            //    _randomSpawnPosition = new Vector2(Random.Range(-5, 5), transform.position.y);
-            //    _spawnTimer += Time.deltaTime;
-            //    if (_spawnTimer >= _spawnInterval)
-            //    {
-            //        GameObject spawn = Instantiate(_spawnObject[_randomSpawnObject], _randomSpawnPosition, Quaternion.identity);
-            //        spawn.SetActive(true);
-            //        _spawnTimer = 0f;
-            //    }
-            //}
-
             // Object Pooling
             if (_waveController.isActive)
             {

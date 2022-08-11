@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace Agate.TapZombie.Character
+namespace Agate.TapZombie.Game
 {
     public class ScoreController : MonoBehaviour
     {

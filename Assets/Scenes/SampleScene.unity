@@ -152,12 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e0c7c448f7c3747b5f8c47b088252a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObjects: []
+  _waveController: {fileID: 1817219256}
+  _pooledObjects: []
   _spawnObject:
   - {fileID: 1916527215}
   - {fileID: 993493891}
   - {fileID: 930179331}
-  amountToPool: 15
+  _amountToPool: 4
 --- !u!4 &79231523
 Transform:
   m_ObjectHideFlags: 0

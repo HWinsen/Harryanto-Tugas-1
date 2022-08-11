@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Agate.TapZombie.Character
+namespace Agate.TapZombie.Game
 {
     public class ObjectPooler : MonoBehaviour
     {
@@ -17,21 +17,36 @@ namespace Agate.TapZombie.Character
 
         #endregion
 
-        public List<GameObject> pooledObjects;
+        [SerializeField] private WaveController _waveController;
+        [SerializeField] private List<GameObject> _pooledObjects;
         [SerializeField] private GameObject[] _spawnObject;
         private int _randomSpawnObject;
         //public AssetReference ball;
 
-        public int amountToPool;
+        [SerializeField] private int _amountToPool;
 
-        // Start is called before the first frame update
         void Start()
         {
             //Addressables.InitializeAsync();
+            _pooledObjects = new List<GameObject>();
+            Pool();
+        }
 
-            pooledObjects = new List<GameObject>();
+        public GameObject GetPooledObject()
+        {
+            for (int i = 0; i < _amountToPool; i++)
+            {
+                if (!_pooledObjects[i].activeInHierarchy)
+                {
+                    return _pooledObjects[i];
+                }
+            }
+            return null;
+        }
 
-            for (int i = 0; i < amountToPool; i++)
+        public void Pool()
+        {
+            for (int i = 0; i < _amountToPool; i++)
             {
                 _randomSpawnObject = Random.Range(0, _spawnObject.Length);
 
@@ -44,22 +59,9 @@ namespace Agate.TapZombie.Character
 
                 GameObject obj = Instantiate(_spawnObject[_randomSpawnObject], transform.position, Quaternion.identity);
                 obj.SetActive(false);
-                pooledObjects.Add(obj);
+                _pooledObjects.Add(obj);
                 obj.transform.parent = gameObject.transform;
             }
-
-        }
-
-        public GameObject GetPooledObject()
-        {
-            for (int i = 0; i < amountToPool; i++)
-            {
-                if (!pooledObjects[i].activeInHierarchy)
-                {
-                    return pooledObjects[i];
-                }
-            }
-            return null;
         }
 
     }

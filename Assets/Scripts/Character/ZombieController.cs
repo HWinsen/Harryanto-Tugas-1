@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Agate.TapZombie.Game;
 
 namespace Agate.TapZombie.Character
 {
@@ -31,10 +32,10 @@ namespace Agate.TapZombie.Character
             gameObject.SetActive(false);
         }
 
-        public void setController(ScoreController sc)
-        {
-            _scoreController = sc;
-        }
+        //public void SetController(ScoreController sc)
+        //{
+        //    _scoreController = sc;
+        //}
 
         public override void Raycasts()
         {

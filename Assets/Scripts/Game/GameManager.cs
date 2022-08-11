@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Agate.TapZombie.Character
+namespace Agate.TapZombie.Game
 {
     public class GameManager : MonoBehaviour
     {

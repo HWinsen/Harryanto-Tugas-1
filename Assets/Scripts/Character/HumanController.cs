@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Agate.TapZombie.Game;
 
 namespace Agate.TapZombie.Character
 {
