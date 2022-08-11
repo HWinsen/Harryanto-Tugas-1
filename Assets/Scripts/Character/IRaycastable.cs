@@ -6,6 +6,6 @@ namespace Agate.TapZombie.Character
 {
     public interface IRaycastable
     {
-        void Raycast();
+        void Raycasts();
     }
 }

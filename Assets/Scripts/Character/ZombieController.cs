@@ -16,7 +16,7 @@ namespace Agate.TapZombie.Character
         protected override void Update()
         {
             Move();
-            Raycast();
+            Raycasts();
         }
 
         protected override void Move()
@@ -36,16 +36,15 @@ namespace Agate.TapZombie.Character
             _scoreController = sc;
         }
 
-        public override void Raycast()
+        public override void Raycasts()
         {
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-                if (hit.collider != null)
+                //Debug.DrawRay(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Color.green);
+                if (hit.collider != null && hit.collider.CompareTag("Zombie"))
                 {
                     Die();
-                    Debug.Log("Target name: " + hit.collider.name);
                 }
             }
         }

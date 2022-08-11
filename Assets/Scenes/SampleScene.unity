@@ -998,8 +998,8 @@ GameObject:
   - component: {fileID: 993493896}
   - component: {fileID: 993493895}
   - component: {fileID: 993493894}
-  - component: {fileID: 993493893}
   - component: {fileID: 993493892}
+  - component: {fileID: 993493893}
   m_Layer: 0
   m_Name: Zombie2
   m_TagString: Zombie
@@ -2554,8 +2554,8 @@ GameObject:
   - component: {fileID: 1916527220}
   - component: {fileID: 1916527219}
   - component: {fileID: 1916527218}
-  - component: {fileID: 1916527217}
   - component: {fileID: 1916527216}
+  - component: {fileID: 1916527217}
   m_Layer: 0
   m_Name: Zombie1
   m_TagString: Zombie
@@ -2733,7 +2733,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060405745}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

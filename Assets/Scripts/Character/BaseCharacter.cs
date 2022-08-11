@@ -10,11 +10,11 @@ namespace Agate.TapZombie.Character
 
         protected abstract void Move();
         protected abstract void Die();
-        public abstract void Raycast();
+        public abstract void Raycasts();
 
         protected virtual void Update()
         {
-            Raycast();
+            Raycasts();
         }
     }
 }
