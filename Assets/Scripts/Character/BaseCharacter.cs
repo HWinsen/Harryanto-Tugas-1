@@ -9,7 +9,7 @@ namespace Agate.TapZombie.Character
         [SerializeField] protected float moveSpeed;
 
         protected abstract void Move();
-        protected abstract void Die();
+        protected abstract void Die(GameObject RaycastedCharacter);
         public abstract void Raycasts();
 
         protected virtual void Update()

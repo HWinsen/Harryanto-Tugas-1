@@ -25,9 +25,10 @@ namespace Agate.TapZombie.Character
             transform.position += moveSpeed * Time.deltaTime * -transform.up;
         }
 
-        protected override void Die()
+        protected override void Die(GameObject RaycastedHuman)
         {
             _gameManager.Lose();
+            RaycastedHuman.SetActive(false);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -43,10 +44,9 @@ namespace Agate.TapZombie.Character
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                //Debug.DrawRay(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Color.green);
                 if (hit.collider != null && hit.collider.CompareTag("Human"))
                 {
-                    Die();
+                    Die(hit.collider.gameObject);
                 }
             }
         }

@@ -12,7 +12,6 @@ namespace Agate.TapZombie.Character
         private float zigZagInterval = 2f;
         [SerializeField] private float newX = 5f;
         
-
         private void Start()
         {
             moveSpeed = 2f;
@@ -27,7 +26,10 @@ namespace Agate.TapZombie.Character
         protected override void Update()
         {
             Move();
-            Raycasts();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Raycasts();
+            }
         }
 
         protected override void Move()
@@ -35,11 +37,11 @@ namespace Agate.TapZombie.Character
             transform.position += moveSpeed * Time.deltaTime * -transform.up;
         }
 
-        protected override void Die()
+        protected override void Die(GameObject RaycastedRobotZombie)
         {
             // point nambah
             _scoreController.UpdateScore();
-            gameObject.SetActive(false);
+            RaycastedRobotZombie.SetActive(false);
         }
 
         //public void SetController(ScoreController sc)
@@ -49,13 +51,11 @@ namespace Agate.TapZombie.Character
 
         public override void Raycasts()
         {
-            if (Input.GetMouseButtonDown(0))
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            
+            if (hit.collider != null && hit.collider.gameObject.CompareTag("Zombie2"))
             {
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                if (hit.collider != null && hit.collider.CompareTag("Zombie2"))
-                {
-                    Die();
-                }
+                Die(hit.collider.gameObject);
             }
         }
 
