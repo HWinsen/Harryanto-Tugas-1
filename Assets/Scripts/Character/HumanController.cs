@@ -4,33 +4,29 @@ using UnityEngine;
 
 namespace Agate.TapZombie.Character
 {
-    public class HumanController : BaseCharacter
+    public class HumanController : BaseCharacter, IRaycastable
     {
         [SerializeField] private GameManager _gameManager;
 
         private void Start()
         {
-            _moveSpeed = 0.8f;
+            moveSpeed = 0.8f;
         }
 
-        private void Update()
+        protected override void Update()
         {
             Move();
+            Raycast();
         }
 
         protected override void Move()
         {
-            transform.position += _moveSpeed * Time.deltaTime * -transform.up;
+            transform.position += moveSpeed * Time.deltaTime * -transform.up;
         }
 
-        public void Kill()
+        protected override void Die()
         {
             _gameManager.Lose();
-        }
-
-        private void OnMouseDown()
-        {
-            Kill();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -38,6 +34,20 @@ namespace Agate.TapZombie.Character
             if (collision.CompareTag("Zombie"))
             {
                 gameObject.SetActive(false);
+            }
+        }
+
+        public override void Raycast()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+                if (hit.collider != null)
+                {
+                    Die();
+                    Debug.Log("Target name: " + hit.collider.name);
+                }
             }
         }
     }

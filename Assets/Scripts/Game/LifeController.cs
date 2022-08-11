@@ -2,31 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LifeController : MonoBehaviour
+namespace Agate.TapZombie.Character
 {
-    public int life;
-    [SerializeField] private UIController _uIController;
-
-    private void Start()
+    public class LifeController : MonoBehaviour
     {
-        life = 3;
-    }
+        public int life;
+        [SerializeField] private UIController _uIController;
 
-    public void RemoveLife()
-    {
-        if (life == 3)
+        private void Start()
         {
-            _uIController.life3.SetActive(false);
+            life = 3;
         }
-        else if (life == 2)
+
+        public void RemoveLife()
         {
-            _uIController.life2.SetActive(false);
+            if (life == 3)
+            {
+                _uIController.life3.SetActive(false);
+            }
+            else if (life == 2)
+            {
+                _uIController.life2.SetActive(false);
+            }
+            else if (life <= 1)
+            {
+                _uIController.life1.SetActive(false);
+            }
+            life--;
+            Debug.Log(life);
         }
-        else if (life <= 1)
-        {
-            _uIController.life1.SetActive(false);
-        }
-        life--;
-        Debug.Log(life);
     }
 }

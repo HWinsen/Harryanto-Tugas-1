@@ -2,26 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SafeZoneController : MonoBehaviour
+namespace Agate.TapZombie.Character
 {
-    [SerializeField] private LifeController _lifeController;
-    [SerializeField] private ScoreController _scoreController;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class SafeZoneController : MonoBehaviour
     {
-        if (collision.CompareTag("Zombie"))
-        {
-            // Kurangin darah
-            _lifeController.RemoveLife();
-        }
-        else if (collision.CompareTag("Human"))
-        {
-            _scoreController.BonusScore();
-        }
-    }
+        [SerializeField] private LifeController _lifeController;
+        [SerializeField] private ScoreController _scoreController;
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        collision.gameObject.SetActive(false);
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Zombie"))
+            {
+                // Kurangin darah
+                _lifeController.RemoveLife();
+            }
+            else if (collision.CompareTag("Human"))
+            {
+                _scoreController.BonusScore();
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 }

@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ScoreController : MonoBehaviour
+namespace Agate.TapZombie.Character
 {
-    [SerializeField] private TMP_Text _scoreTMP;
-
-    private int score = 0;
-
-    // Update is called once per frame
-    void Update()
+    public class ScoreController : MonoBehaviour
     {
-        _scoreTMP.SetText("Score: " + score.ToString());
-    }
+        [SerializeField] private TMP_Text _scoreTMP;
 
-    public void UpdateScore()
-    {
-        score += 100;
-    }
+        private int score = 0;
 
-    public void BonusScore()
-    {
-        score += 500;
+        // Update is called once per frame
+        void Update()
+        {
+            _scoreTMP.SetText("Score: " + score.ToString());
+        }
+
+        public void UpdateScore()
+        {
+            score += 100;
+        }
+
+        public void BonusScore()
+        {
+            score += 500;
+        }
     }
 }

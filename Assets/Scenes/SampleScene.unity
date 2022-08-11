@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 228459941}
   - component: {fileID: 228459939}
   - component: {fileID: 228459940}
+  - component: {fileID: 228459942}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -257,6 +258,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228459942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228459938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &576362383
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf62d7b40fe7e74aa0978ca86332f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 0.5
+  moveSpeed: 0
   _gameManager: {fileID: 971366652}
 --- !u!70 &930179333
 CapsuleCollider2D:
@@ -1023,7 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1163926720832f746a95944a86313f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
+  moveSpeed: 0
   _scoreController: {fileID: 1608010942}
 --- !u!70 &993493894
 CapsuleCollider2D:
@@ -1357,7 +1374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200.00003, y: -50}
+  m_AnchoredPosition: {x: 200, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373665157
@@ -2579,7 +2596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1163926720832f746a95944a86313f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
+  moveSpeed: 0
   _scoreController: {fileID: 1608010942}
 --- !u!70 &1916527218
 CapsuleCollider2D:
