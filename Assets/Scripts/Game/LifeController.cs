@@ -16,20 +16,9 @@ namespace Agate.TapZombie.Game
 
         public void RemoveLife()
         {
-            if (life == 3)
-            {
-                _uIController.SetLife3Inactive();
-            }
-            else if (life == 2)
-            {
-                _uIController.SetLife2Inactive();
-            }
-            else if (life <= 1)
-            {
-                _uIController.SetLife1Inactive();
-            }
             life--;
             Debug.Log(life);
+            _uIController.SetLifeInactive(life);
         }
     }
 }

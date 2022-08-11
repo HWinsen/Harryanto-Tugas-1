@@ -1779,9 +1779,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   losePanel: {fileID: 1675435825}
-  life1: {fileID: 1649671324}
-  life2: {fileID: 1373665155}
-  life3: {fileID: 689778790}
+  lifeIcon:
+  - {fileID: 1649671324}
+  - {fileID: 1373665155}
+  - {fileID: 689778790}
 --- !u!114 &1608010938
 MonoBehaviour:
   m_ObjectHideFlags: 0
