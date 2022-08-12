@@ -34,13 +34,17 @@ namespace Agate.TapZombie.Game
 
         public GameObject GetPooledObject()
         {
-            for (int i = 0; i < _amountToPool; i++)
+            int _randomIndex = Random.Range(0, _amountToPool);
+
+            if (!_pooledObjects[_randomIndex].activeInHierarchy)
             {
-                if (!_pooledObjects[i].activeInHierarchy)
-                {
-                    return _pooledObjects[i];
-                }
+                return _pooledObjects[_randomIndex];
             }
+            else
+            {
+                GetPooledObject();
+            }
+
             return null;
         }
 
